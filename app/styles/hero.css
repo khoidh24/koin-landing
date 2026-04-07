@@ -92,7 +92,7 @@
 }
 
 .koin-hero-heading {
-  font-size: clamp(2.8rem, 7vw, 6.5rem);
+  font-size: clamp(3rem, 7vw, 6.5rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.035em;
@@ -183,10 +183,10 @@
 }
 
 .koin-hero-desc {
-  font-size: clamp(0.82rem, 1.2vw, 0.95rem);
+  font-size: clamp(0.9rem, 1.2vw, 0.95rem);
   font-weight: 300;
   line-height: 1.75;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
   max-width: 360px;
 }
 
@@ -286,10 +286,10 @@
 }
 
 .koin-hero-stat-lbl {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.32);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Scroll indicator */
@@ -307,10 +307,10 @@
 }
 
 .koin-hero-scroll-lbl {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.35);
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }

@@ -242,6 +242,9 @@ export default function NFTCollection() {
                 className="nft-row"
                 role="listitem"
                 aria-label={`View ${nft.title} by ${nft.artist}`}
+                style={
+                  { "--row-img": `url(${nft.img})` } as React.CSSProperties
+                }
                 onClick={(e) => {
                   const thumb = (e.currentTarget as HTMLElement).querySelector(
                     ".nft-thumb-img-wrap",
@@ -273,14 +276,6 @@ export default function NFTCollection() {
                 <span className="nft-row-info">
                   <span className="nft-row-title">{nft.title}</span>
                   <span className="nft-row-artist">{nft.artist}</span>
-                </span>
-
-                {/* Tag */}
-                <span className="nft-row-tag">{nft.tag}</span>
-
-                {/* Price */}
-                <span className="nft-row-price-wrap">
-                  <span className="nft-row-price">{nft.price}</span>
                 </span>
 
                 {/* Hover line */}
