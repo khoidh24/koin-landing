@@ -58,11 +58,11 @@ export const metadata: Metadata = {
       "A curated marketplace for abstract digital entities. Generative systems, recursive algorithms, and one-of-one works from artists who build with code.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-img.png",
         width: 1200,
         height: 630,
         alt: "Koin — Extraordinary Digital Art",
-        type: "image/jpeg",
+        type: "image/png",
       },
     ],
     locale: "en_US",
