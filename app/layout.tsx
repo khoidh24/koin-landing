@@ -96,7 +96,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={dmSans.variable}>
+    <html lang="en">
       <head>
         <script
           type="application/ld+json"
@@ -138,7 +138,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
+      <body className={dmSans.className}>
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

@@ -7,25 +7,21 @@ import { useAppStore } from "@/store/appStore";
 const BG = "#0a0a0a";
 
 const PATHS = [
-  // K stem
-  { d: "M12 8 L12 82", len: 74 },
-  // K top arm
-  { d: "M12 45 L50 8", len: 52 },
-  // K bottom arm
-  { d: "M12 45 L50 82", len: 52 },
-  // O — proper circle, same cap height as K (y=8 top, y=82 bottom → cy=45, r=37)
+  // K — stem + two arms, width ~58, arms meet at optical midpoint (46%)
+  { d: "M10 8 L10 82", len: 74 },
+  { d: "M10 42 L58 8", len: 57 },
+  { d: "M10 42 L58 82", len: 57 },
+  // O — r=37 so top=8, bottom=82, matching cap height of K/I/N exactly
   {
-    d: "M104 8 C124 8 141 25 141 45 C141 65 124 82 104 82 C84 82 67 65 67 45 C67 25 84 8 104 8",
+    d: "M111 8 A37 37 0 0 1 148 45 A37 37 0 0 1 111 82 A37 37 0 0 1 74 45 A37 37 0 0 1 111 8 Z",
     len: 232,
   },
-  // I
-  { d: "M162 8 L162 82", len: 74 },
-  // N left stem
-  { d: "M190 8 L190 82", len: 74 },
-  // N diagonal
-  { d: "M190 8 L228 82", len: 84 },
-  // N right stem
-  { d: "M228 8 L228 82", len: 74 },
+  // I — single stroke, width 0
+  { d: "M168 8 L168 82", len: 74 },
+  // N — width 64 to match K/O proportions, stems at 196 & 260
+  { d: "M196 8 L196 82", len: 74 },
+  { d: "M196 8 L260 82", len: 92 },
+  { d: "M260 8 L260 82", len: 74 },
 ];
 
 /** Memoized — never re-renders after mount */
@@ -181,7 +177,7 @@ const PageLoader = memo(function PageLoader() {
           }}
         >
           <svg
-            viewBox="6 4 230 84"
+            viewBox="6 4 260 84"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             style={{
