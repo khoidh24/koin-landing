@@ -1,0 +1,27 @@
+/* ── Stacking layout ──
+   Hero: fixed behind everything
+   NFT + rest: normal flow, NFT starts translated down
+   Spacer: 100vh creates the Hero "pin" zone
+   ─────────────────────────────────────── */
+
+.koin-hero {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  isolation: isolate;
+}
+
+/* NFT in normal flow — StackScroll drives translateY(100vh → 0) */
+.nft-section {
+  position: relative;
+  z-index: 10;
+  /* Initial state set by StackScroll.tsx via gsap.set */
+}
+
+/* 100vh spacer = Hero pin zone */
+.stack-spacer {
+  height: 100vh;
+  pointer-events: none;
+}

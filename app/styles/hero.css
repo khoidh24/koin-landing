@@ -1,0 +1,333 @@
+.koin-hero {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+/* ── Video ── */
+.koin-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: auto;
+  opacity: 0.45;
+  z-index: 1;
+}
+
+/* ── Overlay ── */
+.koin-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(10, 10, 10, 0.25) 0%,
+      transparent 40%,
+      rgba(10, 10, 10, 0.8) 100%
+    ),
+    linear-gradient(to right, rgba(10, 10, 10, 0.45) 0%, transparent 55%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ── Outline grid lines ── */
+.koin-line-h,
+.koin-line-v {
+  position: absolute;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+}
+
+.koin-line-h {
+  left: var(--gutter);
+  right: var(--gutter);
+  height: 1px;
+}
+
+.koin-line-v {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+.koin-line-bottom {
+  bottom: 0;
+}
+.koin-line-left {
+  left: var(--gutter);
+}
+.koin-line-right {
+  right: var(--gutter);
+}
+
+/* ── Inner layout ── */
+.koin-hero-inner {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 72px var(--gutter-inner) 4rem;
+}
+
+@media (min-width: 768px) {
+  .koin-hero-inner {
+    padding: 72px var(--gutter-inner) 8rem;
+  }
+}
+
+/* ── Heading ── */
+.koin-hero-heading-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.koin-hero-heading {
+  font-size: clamp(2.8rem, 7vw, 6.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: #fff;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .koin-hero-heading {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 1.15;
+  }
+}
+
+/* Clip wrapper per line — đủ room cho descender (g, y, p…) */
+.koin-hero-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.15em;
+  margin-bottom: -0.15em;
+}
+
+/* Solid white chars */
+.koin-hero-line-solid {
+  display: inline-block;
+  color: #fff;
+}
+
+/* Shimmer outer wrapper — this is what GSAP animates (slide up) */
+.koin-hero-line-shimmer-wrap {
+  display: inline-block;
+  height: fit-content;
+}
+
+/* Shimmer text — background-clip stays intact, no SplitText on this */
+.koin-hero-line-shimmer {
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    #fff 0%,
+    rgba(255, 255, 255, 0.3) 25%,
+    #fff 50%,
+    rgba(255, 255, 255, 0.3) 75%,
+    #fff 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: koin-shimmer 5s linear infinite;
+}
+
+@keyframes koin-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* ── Bottom bar ── */
+.koin-hero-bottom {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .koin-hero-bottom {
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .koin-hero-bottom {
+    grid-template-columns: 360px 1fr;
+  }
+}
+
+/* Left */
+.koin-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.koin-hero-desc {
+  font-size: clamp(0.82rem, 1.2vw, 0.95rem);
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 360px;
+}
+
+.koin-hero-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  align-self: flex-start;
+  transition: color 0.35s ease;
+}
+
+.koin-hero-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #0a0a0a;
+  transform: translateX(-101%);
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.koin-hero-cta:hover {
+  color: #fff;
+}
+.koin-hero-cta:hover::before {
+  transform: translateX(0);
+}
+
+.koin-hero-cta-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.koin-hero-cta-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.koin-hero-cta:hover .koin-hero-cta-arrow {
+  transform: translateX(4px);
+}
+
+/* Right */
+.koin-hero-right {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .koin-hero-right {
+    justify-content: flex-end;
+    gap: 4rem;
+  }
+}
+
+/* Stats */
+.koin-hero-stats {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-end;
+}
+
+@media (min-width: 768px) {
+  .koin-hero-stats {
+    gap: 2.5rem;
+  }
+}
+
+.koin-hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.koin-hero-stat-val {
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+  line-height: 1;
+}
+
+.koin-hero-stat-lbl {
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.32);
+}
+
+/* Scroll indicator */
+.koin-hero-scroll {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .koin-hero-scroll {
+    display: flex;
+  }
+}
+
+.koin-hero-scroll-lbl {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.koin-hero-scroll-track {
+  position: relative;
+  width: 1px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.koin-hero-scroll-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.6);
+}

@@ -1,0 +1,123 @@
+.koin-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  padding: 0 var(--gutter-inner);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.koin-header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.koin-header-logo-mark {
+  width: 28px;
+  height: 28px;
+}
+
+.koin-header-logo-text {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.koin-header-nav {
+  display: none;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .koin-header-nav {
+    display: flex;
+  }
+}
+
+.koin-header-nav-link {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.koin-header-nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+  transition: width 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.koin-header-nav-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+.koin-header-nav-link:hover::after {
+  width: 100%;
+}
+
+.koin-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.koin-header-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.koin-header-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(-101%);
+  transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.koin-header-btn:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.koin-header-btn:hover::before {
+  transform: translateX(0);
+}
+
+.koin-header-btn-label {
+  position: relative;
+  z-index: 1;
+}

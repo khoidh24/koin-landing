@@ -1,0 +1,32 @@
+:root {
+  --gutter: 6vw;
+  --gutter-inner: calc(6vw + 2rem);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --gutter: 5vw;
+    --gutter-inner: calc(5vw + 1.25rem);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans), Arial, sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
